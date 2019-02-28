@@ -14,7 +14,7 @@ namespace GingerSoul\SoulCodes;
  *
  * @package SoulCodes
  */
-class PHP_Template {
+class PHP_Template implements Template_Interface {
 
 	/**
 	 * Path to the template file.
@@ -35,13 +35,9 @@ class PHP_Template {
 	}
 
 	/**
-	 * Renders the template with given context.
+     * {@inheritdoc}
 	 *
 	 * @since [*next-version*]
-	 *
-	 * @param array $context The map of context keys to values.
-	 *
-	 * @return string The rendered template.
 	 */
 	public function render( $context ) {
 		ob_start();
