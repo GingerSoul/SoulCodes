@@ -1,0 +1,43 @@
+{
+    "name": "gingersoul/soulcodes",
+    "description": "A WP plugin that allows creation and management of shortcodes via a GUI.",
+    "type": "wordpress-plugin",
+    "license": "GPLv3",
+    "authors": [
+        {
+            "name": "Anton Ukhanev",
+            "email": "xedin.unknown@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^5.4 | ^7.0"
+    },
+    "require-dev": {
+        "wp-coding-standards/wpcs": "^1.0"
+    },
+    "autoload": {
+        "classmap": ["classes/", "includes/"]
+    },
+
+    "repositories":[
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org"
+        }
+    ],
+    "scripts": {
+        "cscheck": "phpcs -s -n",
+        "csfix": "phpcbf --standard=phpcs.xml"
+    },
+    "extra": {
+        "installer-paths": {
+            "../{$name}/": ["type:wordpress-plugin"]
+        }
+    },
+    "config": {
+        "platform": {
+            "php": "5.4.9"
+        }
+    }
+}
