@@ -29,7 +29,7 @@ trait Get_Template_Capable_Trait {
 	 *
 	 * @throws RuntimeException If template could not be retrieved.
 	 *
-	 * @return PHP_Template The template for the key.
+	 * @return Template_Interface The template for the key.
 	 */
 	protected function get_template( $template ) {
 		try {
