@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<ruleset name="SoulCodes">
+    <file>plugin.php</file>
+    <file>includes</file>
+    <file>classes</file>
+    <file>templates</file>
+
+    <rule ref="WordPress-Extra"/>
+    <rule ref="WordPress-Docs"/>
+</ruleset>
