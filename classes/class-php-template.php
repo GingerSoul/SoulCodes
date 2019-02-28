@@ -35,7 +35,7 @@ class PHP_Template implements Template_Interface {
 	}
 
 	/**
-     * {@inheritdoc}
+	 * {@inheritdoc}
 	 *
 	 * @since [*next-version*]
 	 */
