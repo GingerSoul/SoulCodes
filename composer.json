@@ -11,7 +11,10 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": "^5.4 | ^7.0"
+        "php": "^5.4 | ^7.0",
+        "psr/container": "^1.0",
+        "dhii/di": "^0.2-alpha1",
+        "dhii/memoize-memory": "^0.2-alpha1"
     },
     "require-dev": {
         "wp-coding-standards/wpcs": "^1.0"
