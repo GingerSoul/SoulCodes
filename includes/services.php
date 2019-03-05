@@ -34,8 +34,10 @@ return function ( $base_path, $base_url ) {
 		 * @since [*next-version*]
 		 */
 		'template_factory'        => function ( ContainerInterface $c ) {
-			return function ( $path ) {
-				return new PHP_Template( $path );
+		    $translator = $c->get('translator');
+
+			return function ( $path ) use ($translator) {
+				return new PHP_Template( $path, $translator );
 			};
 		},
 
