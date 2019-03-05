@@ -116,7 +116,7 @@ abstract class Handler {
 	 * @return Template_Block The new block.
 	 */
 	protected function create_template_block( $template, $context ) {
-		if ( ! ( $template instanceof PHP_Template ) ) {
+		if ( ! ( $template instanceof Template_Interface ) ) {
 			$template = $this->get_template( (string) $template );
 		}
 
