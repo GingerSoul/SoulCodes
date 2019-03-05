@@ -25,6 +25,8 @@ return function ( $base_path, $base_url ) {
 		'templates_dir'           => '/templates',
 		'translations_dir'        => '/languages',
 		'text_domain'             => 'soulcodes',
+        'user_shortcodes_list_page_name' => 'soulcodes',
+        'user_shortcodes_list_page_cap' => 'edit_theme_options',
 
 		'plugin'                  => function ( ContainerInterface $c ) {
 			return new Plugin( $c );
@@ -72,13 +74,18 @@ return function ( $base_path, $base_url ) {
 		 */
 		'handlers'                => function ( ContainerInterface $c ) {
 			return [
-				$c->get( 'handler_user_shortcodes' ),
+                $c->get( 'handler_user_shortcodes' ),
+                $c->get( 'handler_user_shortcodes_ui' ),
 			];
 		},
 
 		'handler_user_shortcodes' => function ( ContainerInterface $c ) {
 			return new Handler_User_Shortcodes( $c );
 		},
+
+        'handler_user_shortcodes_ui' => function ( ContainerInterface $c ) {
+		    return new Handler_User_Shortcodes_Ui( $c );
+        },
 
         'user_shortcodes_post_type' => 'user_shortcode',
 
