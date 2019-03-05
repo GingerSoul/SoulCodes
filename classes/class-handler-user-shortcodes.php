@@ -94,7 +94,7 @@ class Handler_User_Shortcodes extends Handler {
 
 
 	/**
-	 * Retrieves a list of user-created shortcodes.s
+	 * Retrieves a list of user-created shortcodes.
 	 *
 	 * @since [*next-version*]
 	 *

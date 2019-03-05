@@ -8,6 +8,8 @@
 use Dhii\Wp\I18n\FormatTranslator;
 use GingerSoul\SoulCodes\PHP_Template;
 use GingerSoul\SoulCodes\Plugin;
+use GingerSoul\SoulCodes\Post_Query_Builder;
+use GingerSoul\SoulCodes\Query_Builder_Interface;
 use GingerSoul\SoulCodes\Template_Block;
 use Psr\Container\ContainerInterface;
 
@@ -78,25 +80,13 @@ return function ( $base_path, $base_url ) {
 			return new Handler_User_Shortcodes( $c );
 		},
 
-		'user_shortcodes'         => function ( ContainerInterface $c ) {
-			$shortcodes = [
-				[
-					'post_name'    => 'test-1',
-					'post_content' => 'Hello, world!',
-				],
-				[
-					'post_name'    => 'test-2',
-					'post_content' => 'Ajajajaja!',
-				],
-			];
-			$make       = $c->get( 'wp_post_factory' );
+        'user_shortcodes_post_type' => 'user_shortcode',
 
-			return array_map(
-				function ( $data ) use ( $make ) {
-					return $make( $data );
-				},
-				$shortcodes
-			);
+		'user_shortcodes'         => function ( ContainerInterface $c ) {
+		    $builder = $c->get('user_shortcodes_query_builder');
+		    assert($builder instanceof Query_Builder_Interface);
+
+		    return $builder->get()->get_posts();
 		},
 
 		'wp_post_factory'         => function ( ContainerInterface $c ) {
@@ -177,6 +167,38 @@ return function ( $base_path, $base_url ) {
 
         'translator' => function ( ContainerInterface $c ) {
 		    return new FormatTranslator( $c->get( 'text_domain' ) );
+        },
+
+        /*
+         * A function that creates queries.
+         */
+        'wp_query_factory' => function ( ContainerInterface $c ) {
+		    return function ($args) {
+		        return new WP_Query($args);
+            };
+        },
+
+        /*
+         * A function that creates query builders.
+         */
+        'wp_query_builder_factory' => function ( ContainerInterface $c ) {
+            $query_factory = $c->get('wp_query_factory');
+
+            return function ($defaults) use ($query_factory) {
+                return new Post_Query_Builder($query_factory, $defaults);
+            };
+        },
+
+        /*
+         * A builder of queries used to retrieve user shortcodes.
+         */
+        'user_shortcodes_query_builder' => function ( ContainerInterface $c ) {
+            $make = $c->get('wp_query_builder_factory');
+
+            return $make([
+                'post_type' => $c->get('user_shortcodes_post_type'),
+                'post_status' => 'any',
+            ]);
         },
 	];
 };
