@@ -41,6 +41,17 @@ return function ( $base_path, $base_url ) {
 			};
 		},
 
+        'template_path_factory'      => function ( ContainerInterface $c ) {
+            $base_dir      = rtrim( $c->get( 'base_dir' ), '\\/' );
+            $templates_dir = trim( $c->get( 'templates_dir' ), '\\/' );
+
+            return function ( $name ) use ( $base_dir, $templates_dir ) {
+                $name = trim( $name, '\\/' );
+
+                return "$base_dir/$templates_dir/$name";
+            };
+        },
+
 		/*
 		 * Makes blocs.
 		 *
