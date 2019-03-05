@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a26b583ee6245a0bb3271279d839ca00",
+    "content-hash": "c6796f3a4171c41be91b5e2fc34623b2",
     "packages": [
         {
             "name": "dhii/args-list-validation",
@@ -990,6 +990,97 @@
             "time": "2018-08-29T11:15:09+00:00"
         },
         {
+            "name": "dhii/i18n-abstract",
+            "version": "v0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dhii/i18n-abstract.git",
+                "reference": "90d36bc19f76ff9c618b9ae7631deaa05e7352bc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dhii/i18n-abstract/zipball/90d36bc19f76ff9c618b9ae7631deaa05e7352bc",
+                "reference": "90d36bc19f76ff9c618b9ae7631deaa05e7352bc",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3 | ^7.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "<=0.3.2",
+                "dhii/data-key-value-aware-interface": "^0.1",
+                "dhii/i18n-interface": "^0.2",
+                "dhii/php-cs-fixer-config": "dev-php-5.3",
+                "dhii/stringable-interface": "^0.1",
+                "phpunit/phpunit": "^4.8",
+                "ptrofimov/xpmock": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dhii\\I18n\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dhii Team",
+                    "email": "development@dhii.co"
+                }
+            ],
+            "description": "Common abstract functionality for internationalization.",
+            "time": "2017-03-15T17:20:07+00:00"
+        },
+        {
+            "name": "dhii/i18n-base",
+            "version": "v0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dhii/i18n-base.git",
+                "reference": "57ccb0472efd24fc9267096991e3db3281f728d4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dhii/i18n-base/zipball/57ccb0472efd24fc9267096991e3db3281f728d4",
+                "reference": "57ccb0472efd24fc9267096991e3db3281f728d4",
+                "shasum": ""
+            },
+            "require": {
+                "dhii/i18n-abstract": "^0.1",
+                "dhii/i18n-interface": "^0.2",
+                "php": "^5.3 | ^7.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "<=0.3.2",
+                "dhii/data-key-value-aware-interface": "^0.1",
+                "dhii/php-cs-fixer-config": "dev-php-5.3",
+                "dhii/stringable-interface": "^0.1",
+                "phpunit/phpunit": "^4.8",
+                "ptrofimov/xpmock": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dhii\\I18n\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dhii Team",
+                    "email": "development@dhii.co"
+                }
+            ],
+            "description": "Base implementations for internationalization.",
+            "time": "2017-03-15T18:39:56+00:00"
+        },
+        {
             "name": "dhii/i18n-helper-base",
             "version": "dev-develop",
             "source": {
@@ -1814,6 +1905,54 @@
             "time": "2018-08-29T11:39:22+00:00"
         },
         {
+            "name": "dhii/wp-i18n",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dhii/wp-i18n.git",
+                "reference": "3418c35bda59364521039fd43b370d45982cb561"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dhii/wp-i18n/zipball/3418c35bda59364521039fd43b370d45982cb561",
+                "reference": "3418c35bda59364521039fd43b370d45982cb561",
+                "shasum": ""
+            },
+            "require": {
+                "dhii/i18n-abstract": "^0.1",
+                "dhii/i18n-base": "^0.1",
+                "dhii/i18n-interface": "^0.2",
+                "php": "^5.3 | ^7.0"
+            },
+            "require-dev": {
+                "10up/wp_mock": "dev-dev",
+                "codeclimate/php-test-reporter": "<=0.3.2",
+                "dhii/data-key-value-aware-interface": "^0.1",
+                "dhii/php-cs-fixer-config": "dev-php-5.3",
+                "dhii/stringable-interface": "^0.1",
+                "phpunit/phpunit": "^4.8",
+                "ptrofimov/xpmock": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dhii\\Wp\\I18n\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dhii Team",
+                    "email": "development@dhii.co"
+                }
+            ],
+            "description": "Internationalization for WP",
+            "time": "2018-11-23T16:47:22+00:00"
+        },
+        {
             "name": "psr/container",
             "version": "dev-master",
             "source": {
@@ -2029,7 +2168,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "dhii/wp-i18n": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
