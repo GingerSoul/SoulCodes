@@ -7,8 +7,10 @@
 
 namespace GingerSoul\SoulCodes;
 
+use Dhii\I18n\FormatTranslatorInterface;
 use Exception;
 use Psr\Container\ContainerInterface;
+use Dhii\I18n\StringTranslatorConsumingTrait;
 
 /**
  * A base class for all handlers.
@@ -24,6 +26,9 @@ abstract class Handler {
 
 	/* @since [*next-version*] */
 	use Get_Template_Capable_Trait;
+
+    /* @since [*next-version*] */
+    use StringTranslatorConsumingTrait;
 
 	/**
 	 * Handler constructor.
@@ -128,4 +133,17 @@ abstract class Handler {
 	 * @return void
 	 */
 	abstract protected function hook();
+
+    /**
+     * Retrieves the translator from configuration.
+     *
+     * @since [*next-version*]
+     */
+	protected function _getTranslator()
+    {
+        $translator = $this->get_config('translator');
+        assert($translator instanceof FormatTranslatorInterface);
+
+        return $translator;
+    }
 }

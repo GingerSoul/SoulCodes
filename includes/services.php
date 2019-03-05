@@ -5,6 +5,7 @@
  * @package SoulCache
  */
 
+use Dhii\Wp\I18n\FormatTranslator;
 use GingerSoul\SoulCodes\PHP_Template;
 use GingerSoul\SoulCodes\Plugin;
 use GingerSoul\SoulCodes\Template_Block;
@@ -160,5 +161,9 @@ return function ( $base_path, $base_url ) {
 				return new Text_Template( $text );
 			};
 		},
+
+        'translator' => function ( ContainerInterface $c ) {
+		    return new FormatTranslator( $c->get( 'text_domain' ) );
+        },
 	];
 };
