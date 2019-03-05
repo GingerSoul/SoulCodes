@@ -1,7 +1,19 @@
 <?php
+/**
+ * Template_Interface interface.
+ *
+ * @package SoulCodes
+ */
 
 namespace GingerSoul\SoulCodes;
 
+/**
+ * Represents a template.
+ *
+ * @since [*next-version*]
+ *
+ * @package SoulCodes
+ */
 interface Template_Interface {
 	/**
 	 * Renders this template with the given context.
