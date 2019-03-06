@@ -58,8 +58,14 @@ class Handler_User_Shortcodes_Ui extends Handler {
                     $string_filter_options
                 );
 
-                if (!is_null($action)) {
-                    $this->handle_action($page, $action, $object);
+                if (is_null($action)) {
+                    return;
+                }
+
+                $is_handled = $this->handle_action($page, $action, $object);
+                if ($is_handled) {
+                    wp_redirect(admin_url(vsprintf('%1$s?page=%2$s', [$pagenow, $page])));
+                    exit();
                 }
             }
         );
@@ -86,7 +92,7 @@ class Handler_User_Shortcodes_Ui extends Handler {
 	protected function handle_action($page, $action, $object)
     {
         if (!$page === $this->get_config('user_shortcodes_list_page_name')) {
-            return;
+            return false;
         }
 
         $nonce = filter_input(
@@ -110,10 +116,12 @@ Please go back, refresh the page, and try again.')),
 
         switch ($object) {
             case static::OBJECT_SHORTCODE:
-                $this->handle_shortcode_action($action);
+                return $this->handle_shortcode_action($action);
 
                 break;
         }
+
+        return false;
     }
 
     /**
@@ -133,13 +141,19 @@ Please go back, refresh the page, and try again.')),
                 ));
                 $is_success = $this->delete_shortcode($id);
 
+                return true;
+
                 break;
 
             case static::ACTION_ADD:
                 $is_success = $this->add_shortcode($this->get_config('user_shortcode_default_name'), '');
 
+                return true;
+
                 break;
         }
+
+        return false;
     }
 
     protected function add_shortcode($name, $template) {
