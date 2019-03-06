@@ -15,10 +15,13 @@ class Handler_User_Shortcodes_Ui extends Handler {
     const PARAM_ACTION = 'action';
     const PARAM_NONCE = 'nonce';
     const PARAM_ID = 'id';
+    const PARAM_NAME = 'name';
+    const PARAM_TEMPLATE = 'template';
     const PARAM_OBJECT = 'object';
     const OBJECT_SHORTCODE = 'shortcode';
     const ACTION_TRASH = 'trash';
     const ACTION_ADD = 'add';
+    const ACTION_SAVE = 'save';
 
 	/**
      * {@inheritdoc}
@@ -151,6 +154,30 @@ Please go back, refresh the page, and try again.')),
                 return true;
 
                 break;
+
+            case static::ACTION_SAVE:
+                $id = abs(filter_input(
+                    INPUT_POST,
+                    static::PARAM_ID,
+                    FILTER_SANITIZE_NUMBER_INT
+                ));
+                $name = filter_input(
+                    INPUT_POST,
+                    static::PARAM_NAME,
+                    FILTER_SANITIZE_STRING,
+                    FILTER_FLAG_STRIP_HIGH | FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_BACKTICK
+                );
+                $template = filter_input(
+                    INPUT_POST,
+                    static::PARAM_TEMPLATE,
+                    FILTER_UNSAFE_RAW
+                );
+
+                $is_success = (bool) $this->save_shortcode($id, $name, $template);
+
+                return true;
+
+                break;
         }
 
         return false;
@@ -176,6 +203,25 @@ Please go back, refresh the page, and try again.')),
      */
     protected function delete_shortcode($id) {
 	    return (bool) wp_delete_post($id);
+    }
+
+    /**
+     * Saves a shortcode.
+     *
+     * @since [*next-version*]
+     *
+     * @param int $id The ID of the shortcode to save.
+     * @param string $name The name of the shortcode to save.
+     * @param string $template The template (content) fo the shortcode to save.
+     *
+     * @return int|WP_Error The ID of the shortcode if successful; error otherwise.
+     */
+    protected function save_shortcode($id, $name, $template) {
+        return wp_update_post([
+            'ID'            => $id,
+            'post_name'     => $name,
+            'post_content'  => $template,
+        ]);
     }
 
     /**
@@ -214,6 +260,8 @@ Please go back, refresh the page, and try again.')),
         $object = static::OBJECT_SHORTCODE;
         $action_trash = static::ACTION_TRASH;
         $action_add = static::ACTION_ADD;
+        $action_save = static::ACTION_SAVE;
+
         $trash_url_template = add_query_arg([
             self::PARAM_OBJECT        => $object,
             self::PARAM_ACTION        => $action_trash,
@@ -225,6 +273,11 @@ Please go back, refresh the page, and try again.')),
             self::PARAM_ACTION        => $action_add,
             self::PARAM_NONCE         => '%1$s',
         ]);
+        $save_url_template = add_query_arg([
+            self::PARAM_OBJECT        => $object,
+            self::PARAM_ACTION        => $action_save,
+            self::PARAM_NONCE         => '%1$s',
+        ]);
         $nonce = $this->create_nonce($object);
 
         $list = $this->create_template_block($this->get_template('user_shortcodes_list'), [
@@ -234,6 +287,15 @@ Please go back, refresh the page, and try again.')),
             'nonce'                 => $nonce,
             'trash_url_template'    => $trash_url_template,
             'add_url_template'      => $add_url_template,
+            'save_url_template'     => $save_url_template,
+            'params'                => [
+                'object'                => static::PARAM_OBJECT,
+                'action'                => static::PARAM_ACTION,
+                'nonce'                 => static::PARAM_NONCE,
+                'id'                    => static::PARAM_ID,
+                'name'                  => static::PARAM_NAME,
+                'template'              => static::PARAM_TEMPLATE,
+            ],
         ]);
         $page = $this->create_template_block($this->get_template('user_shortcodes_list_page'), [
             'list'          => $list,
