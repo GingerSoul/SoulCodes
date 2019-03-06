@@ -18,6 +18,7 @@ class Handler_User_Shortcodes_Ui extends Handler {
     const PARAM_OBJECT = 'object';
     const OBJECT_SHORTCODE = 'shortcode';
     const ACTION_TRASH = 'trash';
+    const ACTION_ADD = 'add';
 
 	/**
      * {@inheritdoc}
@@ -133,7 +134,21 @@ Please go back, refresh the page, and try again.')),
                 $is_success = $this->delete_shortcode($id);
 
                 break;
+
+            case static::ACTION_ADD:
+                $is_success = $this->add_shortcode($this->get_config('user_shortcode_default_name'), '');
+
+                break;
         }
+    }
+
+    protected function add_shortcode($name, $template) {
+        return (bool) wp_insert_post([
+            'post_name'     => $name,
+            'post_content'  => $template,
+            'post_type'     => $this->get_config('user_shortcodes_post_type'),
+            'post_status'   => 'publish'
+        ]);
     }
 
     /**
@@ -191,6 +206,11 @@ Please go back, refresh the page, and try again.')),
             self::PARAM_NONCE         => '%1$s',
             self::PARAM_ID            => '%2$s',
         ]);
+        $add_url_template = add_query_arg([
+            self::PARAM_OBJECT        => $object,
+            self::PARAM_ACTION        => $action_add,
+            self::PARAM_NONCE         => '%1$s',
+        ]);
         $nonce = $this->create_nonce($object);
 
         $list = $this->create_template_block($this->get_template('user_shortcodes_list'), [
@@ -199,6 +219,7 @@ Please go back, refresh the page, and try again.')),
             'count'                 => $count,
             'nonce'                 => $nonce,
             'trash_url_template'    => $trash_url_template,
+            'add_url_template'      => $add_url_template,
         ]);
         $page = $this->create_template_block($this->get_template('user_shortcodes_list_page'), [
             'list'          => $list,

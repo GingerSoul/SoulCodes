@@ -9,11 +9,15 @@ $count = $c('count');
 $strings = $c('strings');
 $nonce = $c('nonce');
 $trash_url_template = $c('trash_url_template');
+$add_url_template = $c('add_url_template');
 $summary = $t('Showing %1$d of %2$d records', [$count, $total]);
 ?>
 
 <div class="list">
     <div class="list-head">
+        <div class="list-actions">
+            <a href="<?= esc_attr(vsprintf($add_url_template, [$nonce])) ?>"><?= $t('Add Shortcode') ?></a>
+        </div>
         <div class="list-summary">
             <?= esc_html($summary) ?>
         </div>

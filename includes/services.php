@@ -27,6 +27,7 @@ return function ( $base_path, $base_url ) {
 		'text_domain'             => 'soulcodes',
         'user_shortcodes_list_page_name' => 'soulcodes',
         'user_shortcodes_list_page_cap' => 'edit_theme_options',
+        'user_shortcode_default_name' => 'shortcode',
 
 		'plugin'                  => function ( ContainerInterface $c ) {
 			return new Plugin( $c );
