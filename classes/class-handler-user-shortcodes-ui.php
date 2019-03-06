@@ -15,7 +15,9 @@ class Handler_User_Shortcodes_Ui extends Handler {
     const PARAM_ACTION = 'action';
     const PARAM_NONCE = 'nonce';
     const PARAM_ID = 'id';
-    const ACTION_TRASH_SHORTCODE = 'trash_shortcode';
+    const PARAM_OBJECT = 'object';
+    const OBJECT_SHORTCODE = 'shortcode';
+    const ACTION_TRASH = 'trash';
 
 	/**
      * {@inheritdoc}
@@ -42,6 +44,12 @@ class Handler_User_Shortcodes_Ui extends Handler {
                     FILTER_SANITIZE_STRING,
                     $string_filter_options
                 );
+                $object = filter_input(
+                    INPUT_GET,
+                    static::PARAM_OBJECT,
+                    FILTER_SANITIZE_STRING,
+                    $string_filter_options
+                );
                 $action = filter_input(
                     INPUT_GET,
                     self::PARAM_ACTION,
@@ -50,7 +58,7 @@ class Handler_User_Shortcodes_Ui extends Handler {
                 );
 
                 if (!is_null($action)) {
-                    $this->handle_action($page, $action);
+                    $this->handle_action($page, $action, $object);
                 }
             }
         );
@@ -74,8 +82,12 @@ class Handler_User_Shortcodes_Ui extends Handler {
      * @param string $page The key of the page to handle.
      * @param string $action The key of the action to handle.
      */
-	protected function handle_action($page, $action)
+	protected function handle_action($page, $action, $object)
     {
+        if (!$page === $this->get_config('user_shortcodes_list_page_name')) {
+            return;
+        }
+
         $nonce = filter_input(
             INPUT_GET,
             static::PARAM_NONCE,
@@ -84,7 +96,7 @@ class Handler_User_Shortcodes_Ui extends Handler {
             );
 
         // Require valid nonce.
-        if (!$this->validate_nonce($nonce, $action)) {
+        if (!$this->validate_nonce($nonce, $object)) {
             wp_die(
                 wpautop($this->__('You are not authorized to perform this action.
 Possibly the page which dispatched the action has timed out.
@@ -95,30 +107,30 @@ Please go back, refresh the page, and try again.')),
                 ]);
         }
 
-        switch ($page) {
-            case $this->get_config('user_shortcodes_list_page_name'):
-                $this->handle_list_page_action($action);
+        switch ($object) {
+            case static::OBJECT_SHORTCODE:
+                $this->handle_shortcode_action($action);
 
                 break;
         }
     }
 
     /**
-     * Handles an action of the list page.
+     * Handles an action of a shortcode.
      *
      * @since [*next-version*]
      *
      * @param string $action The key of the list page action to handle.
      */
-    protected function handle_list_page_action($action) {
+    protected function handle_shortcode_action($action) {
         switch ($action) {
-            case static::ACTION_TRASH_SHORTCODE:
+            case static::ACTION_TRASH:
                 $id = abs(filter_input(
                     INPUT_GET,
                     static::PARAM_ID,
                     FILTER_SANITIZE_NUMBER_INT
                 ));
-                $this->delete_shortcode($id);
+                $is_success = $this->delete_shortcode($id);
 
                 break;
         }
@@ -170,13 +182,16 @@ Please go back, refresh the page, and try again.')),
         $total = $query->found_posts;
         $count = $query->post_count;
         $shortcodes = $query->get_posts();
-        $action_trash = static::ACTION_TRASH_SHORTCODE;
+        $object = static::OBJECT_SHORTCODE;
+        $action_trash = static::ACTION_TRASH;
+        $action_add = static::ACTION_ADD;
         $trash_url_template = add_query_arg([
+            self::PARAM_OBJECT        => $object,
             self::PARAM_ACTION        => $action_trash,
             self::PARAM_NONCE         => '%1$s',
             self::PARAM_ID            => '%2$s',
         ]);
-        $nonce = $this->create_nonce($action_trash);
+        $nonce = $this->create_nonce($object);
 
         $list = $this->create_template_block($this->get_template('user_shortcodes_list'), [
             'shortcodes'            => $shortcodes,
