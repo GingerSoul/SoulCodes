@@ -35,7 +35,7 @@ class Handler_User_Shortcodes_Ui extends Handler {
 	            global $pagenow;
 
 	            // Only for our page
-	            if (!$pagenow === 'admin.php') {
+	            if ($pagenow !== 'admin.php') {
 	                return;
                 }
 
