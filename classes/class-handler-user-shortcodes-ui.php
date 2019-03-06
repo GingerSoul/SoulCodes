@@ -61,6 +61,10 @@ class Handler_User_Shortcodes_Ui extends Handler {
                     $string_filter_options
                 );
 
+                if ($this->is_plugin_page($pagenow, $page)) {
+                    $this->enqueue_admin_assets();
+                }
+
                 if (is_null($action)) {
                     return;
                 }
@@ -345,5 +349,41 @@ Please go back, refresh the page, and try again.')),
      */
     protected function validate_nonce($nonce, $key) {
         return wp_verify_nonce($nonce, $key);
+    }
+
+    /**
+     * Determines whether a page is handled by this handler.
+     *
+     * @since [*next-version*]
+     *
+     * @param string $section Key of the page section to check.
+     * @param string $page Key of the page to check.
+     *
+     * @return bool True if the current page is a page handled by the handler; false otherwise.
+     */
+    protected function is_plugin_page($section, $page) {
+        if (!in_array($section, ['admin.php'])) {
+            return false;
+        }
+
+        if (!in_array($page, [$this->get_config('user_shortcodes_list_page_name')])) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Enqueues the assets used by this handler in the admin.
+     *
+     * @since [*next-version*]
+     */
+    protected function enqueue_admin_assets() {
+        wp_enqueue_style(
+            'soulcodes',
+            $this->get_css_url('admin.css'),
+            [],
+            $this->get_config('version')
+        );
     }
 }
