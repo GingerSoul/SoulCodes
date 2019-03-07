@@ -1,1 +1,45 @@
 /* SoulCodes styles */
+
+.list-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5%;
+    padding: 0 5% 0 0;
+}
+
+.shortcode-item {
+    padding: 2rem 0;
+}
+
+.shortcode-item input, .shortcode-item textarea {
+    width: 100%;
+}
+
+.shortcode-item textarea{
+	height:100px;
+	max-height:100px;
+	font-family:monospace;
+}
+
+.shortcode-code {
+    display: flex;
+}
+
+.shortcode-code button {
+    width: 30%;
+    margin: 0 0rem;
+}
+
+.shortcode-act form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.shortcode-act input[type="submit"] {
+    width: 30%;
+}
+
+a.action.action-trash {
+    color: red;
+}
