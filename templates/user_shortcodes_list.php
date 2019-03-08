@@ -32,7 +32,7 @@ $summary = $t('Showing %1$d of %2$d items', [$count, $total]);
                 <div class="shortcode-code">
                     <input form="<?= $form_id ?>" type="text" name="<?= esc_attr($params['name']) ?>"
                            value="<?= esc_attr($shortcode->post_name) ?>" title="<?= esc_attr($t('Shortcode')) ?>"/>
-                    <button>$t('Copy')</button>
+                    <button><?= $t('Copy') ?></button>
                 </div>
                 <div class="shortcode-temp">
                     <textarea
