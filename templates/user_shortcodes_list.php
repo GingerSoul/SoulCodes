@@ -12,7 +12,7 @@ $trash_url_template = $c('trash_url_template');
 $add_url_template = $c('add_url_template');
 $save_url_template = $c('save_url_template');
 $params = $c('params');
-$summary = $t('Showing %1$d of %2$d records', [$count, $total]);
+$summary = $t('Showing %1$d of %2$d items', [$count, $total]);
 ?>
 
 <div class="list">
