@@ -34,7 +34,7 @@ $summary = $t('Showing %1$d of %2$d items', [$count, $total]);
                     <div class="user-shortcode-box__code">
                         <input form="<?= $form_id ?>" type="text" name="<?= esc_attr($params['name']) ?>"
                                value="<?= esc_attr($shortcode->post_name) ?>" title="<?= esc_attr($t('Shortcode')) ?>"/>
-                        <button class="button-copy-to-clipboard" title="<?= $t('Copy to Clipboard') ?>"></button>
+                        <button class="button-copy-to-clipboard" title="<?= $t('Copy to Clipboard') ?>">Copy</button>
                     </div>
                     <div class="user-shortcode-box__template">
                         <textarea

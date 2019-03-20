@@ -30,11 +30,12 @@
     display: flex;
 }
 
-.button-copy-to-clipboard
+.button-copy-to-clipboard 
 {
-    padding: 0.22em;
+    width: 25%;
 }
 
+/*
 .button-copy-to-clipboard:before
 {
     font-family: "dashicons";
@@ -42,6 +43,7 @@
     vertical-align: middle;
     content: "\f481";
 }
+*/
 
 .user-shortcode-box__action--save
 {
