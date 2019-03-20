@@ -35,7 +35,7 @@ $summary = $t('Showing %1$d of %2$d records', [$count, $total]);
                         
                         <input form="<?= $form_id ?>" type="text" name="<?= esc_attr($params['name']) ?>" value="<?= esc_attr($shortcode->post_name) ?>" title="<?= esc_attr($t('Shortcode')) ?>" />
                         
-                        <button>Copy</button>
+                        <button class="copy-shortcode">Copy</button>
 	                
                 </div>
                 
