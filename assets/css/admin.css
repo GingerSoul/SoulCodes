@@ -1,45 +1,55 @@
 /* SoulCodes styles */
 
-.list-body {
+.user-shortcode-list__body
+{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 5%;
     padding: 0 5% 0 0;
 }
 
-.shortcode-item {
+.user-shortcode-box {
     padding: 2rem 0;
 }
 
-.shortcode-item input, .shortcode-item textarea {
+.user-shortcode-box input[type="text"],
+.user-shortcode-box textarea
+{
     width: 100%;
 }
 
-.shortcode-item textarea{
+.user-shortcode-box textarea
+{
 	height:100px;
 	max-height:100px;
 	font-family:monospace;
 }
 
-.shortcode-code {
+.user-shortcode-box__code
+{
     display: flex;
 }
 
-.shortcode-code button {
+.button-copy-to-clipboard
+{
+    padding: 0.22em;
+}
+
+.button-copy-to-clipboard:before
+{
+    font-family: "dashicons";
+    font-size: 1.4em;
+    vertical-align: middle;
+    content: "\f481";
+}
+
+.user-shortcode-box__action--save
+{
+    float: right;
     width: 30%;
-    margin: 0 0rem;
 }
 
-.shortcode-act form {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.shortcode-act input[type="submit"] {
-    width: 30%;
-}
-
-a.action.action-trash {
+.user-shortcode-box__action--trash
+{
     color: red;
 }
