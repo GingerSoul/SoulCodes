@@ -1,0 +1,57 @@
+/* SoulCodes styles */
+
+.user-shortcode-list__body
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5%;
+    padding: 0 5% 0 0;
+}
+
+.user-shortcode-box {
+    padding: 2rem 0;
+}
+
+.user-shortcode-box input[type="text"],
+.user-shortcode-box textarea
+{
+    width: 100%;
+}
+
+.user-shortcode-box textarea
+{
+	height:100px;
+	max-height:100px;
+	font-family:monospace;
+}
+
+.user-shortcode-box__code
+{
+    display: flex;
+}
+
+.button-copy-to-clipboard 
+{
+    width: 25%;
+}
+
+/*
+.button-copy-to-clipboard:before
+{
+    font-family: "dashicons";
+    font-size: 1.4em;
+    vertical-align: middle;
+    content: "\f481";
+}
+*/
+
+.user-shortcode-box__action--save
+{
+    float: right;
+    width: 30%;
+}
+
+.user-shortcode-box__action--trash
+{
+    color: red;
+}

@@ -1,7 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/build" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dealerdirect/phpcodesniffer-composer-installer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/args-list-validation" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/cache-abstract" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/callback-abstract" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/collections-interface" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/container-helper-base" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/data-container-abstract" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/data-container-base" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/data-container-interface" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/data-hierarchy-interface" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/data-key-value-aware-abstract" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/data-key-value-aware-interface" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/data-object-abstract" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/data-path-aware-interface" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/di" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/di-abstract" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/exception" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/exception-interface" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/factory-base" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/factory-interface" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/i18n-abstract" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/i18n-base" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/i18n-helper-base" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/i18n-interface" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/invocable-base" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/invocable-interface" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/iterator-abstract" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/iterator-base" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/iterator-helper-base" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/iterator-interface" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/map" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/memoize-memory" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/normalization-helper-base" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/simple-cache-interface" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/stringable-interface" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/validation-abstract" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/validation-base" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/validation-interface" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dhii/wp-i18n" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phing/phing" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/squizlabs/php_codesniffer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/wp-coding-standards/wpcs" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

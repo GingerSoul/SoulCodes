@@ -1,5 +1,5 @@
 # SoulCodes
-A WordPress plugin that allows creation of custom shortcodes via a GUI.
+A WP plugin that allows creation and management of shortcodes via a GUI.
 
 ## Build
 This package may depend on other WP plugin packages. If in WordPress environment, add the following
