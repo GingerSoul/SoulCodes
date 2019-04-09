@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c6796f3a4171c41be91b5e2fc34623b2",
+    "content-hash": "dacb32fb3002f1e6bf1af7455153336e",
     "packages": [
         {
             "name": "dhii/args-list-validation",
@@ -52,7 +52,7 @@
                 }
             ],
             "description": "Validation of an arguments list",
-            "time": "2018-03-12T04:34:54+00:00"
+            "time": "2018-03-12 04:34:54"
         },
         {
             "name": "dhii/cache-abstract",
@@ -108,7 +108,7 @@
                 }
             ],
             "description": "Abstract functionality for caching.",
-            "time": "2018-03-22T21:23:37+00:00"
+            "time": "2018-03-22 21:23:37"
         },
         {
             "name": "dhii/callback-abstract",
@@ -163,7 +163,7 @@
                 }
             ],
             "description": "Abstract functionality for working with callbacks.",
-            "time": "2018-04-04T14:57:27+00:00"
+            "time": "2018-04-04 14:57:27"
         },
         {
             "name": "dhii/collections-interface",
@@ -212,7 +212,7 @@
                 }
             ],
             "description": "A highly ISP-compliant collection of interfaces that represent maps and lists.",
-            "time": "2018-04-26T13:04:16+00:00"
+            "time": "2018-04-26 13:04:16"
         },
         {
             "name": "dhii/container-helper-base",
@@ -261,7 +261,7 @@
                 }
             ],
             "description": "Helper functionality for working with container.",
-            "time": "2018-11-06T18:03:24+00:00"
+            "time": "2018-11-06 18:03:24"
         },
         {
             "name": "dhii/data-container-abstract",
@@ -314,7 +314,7 @@
                 }
             ],
             "description": "Abstract functionality for working with data containers.",
-            "time": "2018-04-01T15:13:22+00:00"
+            "time": "2018-04-01 15:13:22"
         },
         {
             "name": "dhii/data-container-base",
@@ -366,7 +366,7 @@
                 }
             ],
             "description": "Base functionality for container implementations",
-            "time": "2018-03-16T18:58:30+00:00"
+            "time": "2018-03-16 18:58:30"
         },
         {
             "name": "dhii/data-container-interface",
@@ -420,7 +420,7 @@
                 }
             ],
             "description": "Interfaces for working with data containers",
-            "time": "2018-04-26T09:50:30+00:00"
+            "time": "2018-04-26 09:50:30"
         },
         {
             "name": "dhii/data-hierarchy-interface",
@@ -510,7 +510,7 @@
                 }
             ],
             "description": "Traits for objects that are aware of a key, a value, or both.",
-            "time": "2018-02-11T15:58:23+00:00"
+            "time": "2018-02-11 15:58:23"
         },
         {
             "name": "dhii/data-key-value-aware-interface",
@@ -605,7 +605,7 @@
                 }
             ],
             "description": "Abstract common functionality for data objects",
-            "time": "2018-03-15T12:29:35+00:00"
+            "time": "2018-03-15 12:29:35"
         },
         {
             "name": "dhii/data-path-aware-interface",
@@ -722,7 +722,7 @@
                 "dependency injection",
                 "di"
             ],
-            "time": "2018-04-11T12:44:04+00:00"
+            "time": "2018-04-11 12:44:04"
         },
         {
             "name": "dhii/di-abstract",
@@ -775,7 +775,7 @@
                 }
             ],
             "description": "Base abstract classes for DI container implementations",
-            "time": "2018-04-01T15:17:25+00:00"
+            "time": "2018-04-01 15:17:25"
         },
         {
             "name": "dhii/exception",
@@ -829,7 +829,7 @@
                 }
             ],
             "description": "Standards-compliant exception classes",
-            "time": "2018-05-28T08:47:18+00:00"
+            "time": "2018-05-28 08:47:18"
         },
         {
             "name": "dhii/exception-interface",
@@ -937,7 +937,7 @@
                 }
             ],
             "description": "Base functionality for factories.",
-            "time": "2018-04-09T16:03:15+00:00"
+            "time": "2018-04-09 16:03:15"
         },
         {
             "name": "dhii/factory-interface",
@@ -1126,7 +1126,7 @@
                 }
             ],
             "description": "A base for internationalization consumers",
-            "time": "2018-03-07T22:38:07+00:00"
+            "time": "2018-03-07 22:38:07"
         },
         {
             "name": "dhii/i18n-interface",
@@ -1266,7 +1266,7 @@
                 }
             ],
             "description": "Interface for objects that can be invoked.",
-            "time": "2018-02-12T16:56:45+00:00"
+            "time": "2018-02-12 16:56:45"
         },
         {
             "name": "dhii/iterator-abstract",
@@ -1321,7 +1321,7 @@
                 "iterator",
                 "trait"
             ],
-            "time": "2018-04-25T12:20:32+00:00"
+            "time": "2018-04-25 12:20:32"
         },
         {
             "name": "dhii/iterator-base",
@@ -1376,7 +1376,7 @@
                 }
             ],
             "description": "Base concrete functionality for iterators",
-            "time": "2018-03-22T11:45:19+00:00"
+            "time": "2018-03-22 11:45:19"
         },
         {
             "name": "dhii/iterator-helper-base",
@@ -1429,7 +1429,7 @@
                 }
             ],
             "description": "Common functionality for working with iterables",
-            "time": "2018-03-22T11:25:07+00:00"
+            "time": "2018-03-22 11:25:07"
         },
         {
             "name": "dhii/iterator-interface",
@@ -1480,7 +1480,7 @@
                 }
             ],
             "description": "Interfaces for standard iterators",
-            "time": "2018-04-24T19:38:13+00:00"
+            "time": "2018-04-24 19:38:13"
         },
         {
             "name": "dhii/map",
@@ -1543,7 +1543,7 @@
                 "iterable",
                 "map"
             ],
-            "time": "2018-07-30T10:48:11+00:00"
+            "time": "2018-07-30 10:48:11"
         },
         {
             "name": "dhii/memoize-memory",
@@ -1603,7 +1603,7 @@
                 }
             ],
             "description": "An in-memory memoizer implementation.",
-            "time": "2018-04-03T13:41:36+00:00"
+            "time": "2018-04-03 13:41:36"
         },
         {
             "name": "dhii/normalization-helper-base",
@@ -1651,7 +1651,7 @@
                 }
             ],
             "description": "Functionality for normalizing values.",
-            "time": "2018-06-04T08:55:31+00:00"
+            "time": "2018-06-04 08:55:31"
         },
         {
             "name": "dhii/simple-cache-interface",
@@ -1701,7 +1701,7 @@
                 }
             ],
             "description": "A simple cache standard inspired by PSR-16.",
-            "time": "2018-05-21T16:19:27+00:00"
+            "time": "2018-05-21 16:19:27"
         },
         {
             "name": "dhii/stringable-interface",
@@ -1799,7 +1799,7 @@
                 }
             ],
             "description": "Common abstract functionality for validation.",
-            "time": "2018-03-07T21:05:39+00:00"
+            "time": "2018-03-07 21:05:39"
         },
         {
             "name": "dhii/validation-base",
@@ -1852,7 +1852,7 @@
                 }
             ],
             "description": "Base concrete functionality for validation.",
-            "time": "2018-04-02T13:31:36+00:00"
+            "time": "2018-04-02 13:31:36"
         },
         {
             "name": "dhii/validation-interface",
@@ -1950,7 +1950,7 @@
                 }
             ],
             "description": "Internationalization for WP",
-            "time": "2018-11-23T16:47:22+00:00"
+            "time": "2018-11-23 16:47:22"
         },
         {
             "name": "psr/container",
@@ -1999,7 +1999,7 @@
                 "container-interop",
                 "psr"
             ],
-            "time": "2018-12-29T15:36:03+00:00"
+            "time": "2018-12-29 15:36:03"
         }
     ],
     "packages-dev": [
@@ -2072,17 +2072,110 @@
             "time": "2017-12-06T16:27:17+00:00"
         },
         {
+            "name": "phing/phing",
+            "version": "2.15.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phingofficial/phing.git",
+                "reference": "0999ab4e94e609dc00998e3d1b88df843054db7c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phingofficial/phing/zipball/0999ab4e94e609dc00998e3d1b88df843054db7c",
+                "reference": "0999ab4e94e609dc00998e3d1b88df843054db7c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "require-dev": {
+                "ext-pdo_sqlite": "*",
+                "lastcraft/simpletest": "@dev",
+                "mikey179/vfsstream": "^1.6",
+                "pdepend/pdepend": "2.x",
+                "pear/archive_tar": "1.4.x",
+                "pear/http_request2": "dev-trunk",
+                "pear/net_growl": "dev-trunk",
+                "pear/pear-core-minimal": "1.10.1",
+                "pear/versioncontrol_git": "@dev",
+                "pear/versioncontrol_svn": "~0.5",
+                "phpdocumentor/phpdocumentor": "2.x",
+                "phploc/phploc": "~2.0.6",
+                "phpmd/phpmd": "~2.2",
+                "phpunit/phpunit": ">=3.7",
+                "sebastian/git": "~1.0",
+                "sebastian/phpcpd": "2.x",
+                "siad007/versioncontrol_hg": "^1.0",
+                "squizlabs/php_codesniffer": "~2.2",
+                "symfony/yaml": "~2.7"
+            },
+            "suggest": {
+                "pdepend/pdepend": "PHP version of JDepend",
+                "pear/archive_tar": "Tar file management class",
+                "pear/versioncontrol_git": "A library that provides OO interface to handle Git repository",
+                "pear/versioncontrol_svn": "A simple OO-style interface for Subversion, the free/open-source version control system",
+                "phpdocumentor/phpdocumentor": "Documentation Generator for PHP",
+                "phploc/phploc": "A tool for quickly measuring the size of a PHP project",
+                "phpmd/phpmd": "PHP version of PMD tool",
+                "phpunit/php-code-coverage": "Library that provides collection, processing, and rendering functionality for PHP code coverage information",
+                "phpunit/phpunit": "The PHP Unit Testing Framework",
+                "sebastian/phpcpd": "Copy/Paste Detector (CPD) for PHP code",
+                "siad007/versioncontrol_hg": "A library for interfacing with Mercurial repositories.",
+                "tedivm/jshrink": "Javascript Minifier built in PHP"
+            },
+            "bin": [
+                "bin/phing"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.15.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "classes/phing/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "classes"
+            ],
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Michiel Rook",
+                    "email": "mrook@php.net"
+                },
+                {
+                    "name": "Phing Community",
+                    "homepage": "https://www.phing.info/trac/wiki/Development/Contributors"
+                }
+            ],
+            "description": "PHing Is Not GNU make; it's a PHP project build system or build tool based on Apache Ant.",
+            "homepage": "https://www.phing.info/",
+            "keywords": [
+                "build",
+                "phing",
+                "task",
+                "tool"
+            ],
+            "time": "2016-10-13T09:01:45+00:00"
+        },
+        {
             "name": "squizlabs/php_codesniffer",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "fdcd295d608176b8f5d97f78b8500d927f9ad80e"
+                "reference": "ac3ec982f8cce86f0c372a46cb03580bdd47668e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/fdcd295d608176b8f5d97f78b8500d927f9ad80e",
-                "reference": "fdcd295d608176b8f5d97f78b8500d927f9ad80e",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/ac3ec982f8cce86f0c372a46cb03580bdd47668e",
+                "reference": "ac3ec982f8cce86f0c372a46cb03580bdd47668e",
                 "shasum": ""
             },
             "require": {
@@ -2120,7 +2213,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2019-02-28T05:01:33+00:00"
+            "time": "2019-04-09T00:37:02+00:00"
         },
         {
             "name": "wp-coding-standards/wpcs",

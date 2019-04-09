@@ -20,7 +20,8 @@
     },
     "require-dev": {
         "wp-coding-standards/wpcs": "^1.0",
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3"
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3",
+        "phing/phing": "^2"
     },
     "autoload": {
         "classmap": ["classes/", "includes/"]
