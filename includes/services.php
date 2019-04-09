@@ -15,21 +15,21 @@ use Psr\Container\ContainerInterface;
 
 return function ( $base_path, $base_url ) {
 	return [
-		'version'                 => '[*next-version*]',
-		'base_path'               => $base_path,
-		'base_dir'                => function ( ContainerInterface $c ) {
+		'version'                        => '[*next-version*]',
+		'base_path'                      => $base_path,
+		'base_dir'                       => function ( ContainerInterface $c ) {
 			return dirname( $c->get( 'base_path' ) );
 		},
-		'base_url'                => $base_url,
-		'js_path'                 => '/assets/js',
-		'templates_dir'           => '/templates',
-		'translations_dir'        => '/languages',
-		'text_domain'             => 'soulcodes',
-        'user_shortcodes_list_page_name' => 'soulcodes',
-        'user_shortcodes_list_page_cap' => 'edit_theme_options',
-        'user_shortcode_default_name' => 'shortcode',
+		'base_url'                       => $base_url,
+		'js_path'                        => '/assets/js',
+		'templates_dir'                  => '/templates',
+		'translations_dir'               => '/languages',
+		'text_domain'                    => 'soulcodes',
+		'user_shortcodes_list_page_name' => 'soulcodes',
+		'user_shortcodes_list_page_cap'  => 'edit_theme_options',
+		'user_shortcode_default_name'    => 'shortcode',
 
-		'plugin'                  => function ( ContainerInterface $c ) {
+		'plugin'                         => function ( ContainerInterface $c ) {
 			return new Plugin( $c );
 		},
 
@@ -38,31 +38,31 @@ return function ( $base_path, $base_url ) {
 		 *
 		 * @since [*next-version*]
 		 */
-		'template_factory'        => function ( ContainerInterface $c ) {
-		    $translator = $c->get('translator');
+		'template_factory'               => function ( ContainerInterface $c ) {
+			$translator = $c->get( 'translator' );
 
-			return function ( $path ) use ($translator) {
+			return function ( $path ) use ( $translator ) {
 				return new PHP_Template( $path, $translator );
 			};
 		},
 
-        'template_path_factory'      => function ( ContainerInterface $c ) {
-            $base_dir      = rtrim( $c->get( 'base_dir' ), '\\/' );
-            $templates_dir = trim( $c->get( 'templates_dir' ), '\\/' );
+		'template_path_factory'          => function ( ContainerInterface $c ) {
+			$base_dir      = rtrim( $c->get( 'base_dir' ), '\\/' );
+			$templates_dir = trim( $c->get( 'templates_dir' ), '\\/' );
 
-            return function ( $name ) use ( $base_dir, $templates_dir ) {
-                $name = trim( $name, '\\/' );
+			return function ( $name ) use ( $base_dir, $templates_dir ) {
+				$name = trim( $name, '\\/' );
 
-                return "$base_dir/$templates_dir/$name";
-            };
-        },
+				return "$base_dir/$templates_dir/$name";
+			};
+		},
 
 		/*
 		 * Makes blocs.
 		 *
 		 * @since [*next-version*]
 		 */
-		'block_factory'           => function ( ContainerInterface $c ) {
+		'block_factory'                  => function ( ContainerInterface $c ) {
 			return function ( PHP_Template $template, $context ) {
 				return new Template_Block( $template, $context );
 			};
@@ -73,31 +73,31 @@ return function ( $base_path, $base_url ) {
 		 *
 		 * @since [*next-version*]
 		 */
-		'handlers'                => function ( ContainerInterface $c ) {
+		'handlers'                       => function ( ContainerInterface $c ) {
 			return [
-                $c->get( 'handler_user_shortcodes' ),
-                $c->get( 'handler_user_shortcodes_ui' ),
+				$c->get( 'handler_user_shortcodes' ),
+				$c->get( 'handler_user_shortcodes_ui' ),
 			];
 		},
 
-		'handler_user_shortcodes' => function ( ContainerInterface $c ) {
+		'handler_user_shortcodes'        => function ( ContainerInterface $c ) {
 			return new Handler_User_Shortcodes( $c );
 		},
 
-        'handler_user_shortcodes_ui' => function ( ContainerInterface $c ) {
-		    return new Handler_User_Shortcodes_Ui( $c );
-        },
-
-        'user_shortcodes_post_type' => 'user_shortcode',
-
-		'user_shortcodes'         => function ( ContainerInterface $c ) {
-		    $builder = $c->get('user_shortcodes_query_builder');
-		    assert($builder instanceof Query_Builder_Interface);
-
-		    return $builder->get()->get_posts();
+		'handler_user_shortcodes_ui'     => function ( ContainerInterface $c ) {
+			return new Handler_User_Shortcodes_Ui( $c );
 		},
 
-		'wp_post_factory'         => function ( ContainerInterface $c ) {
+		'user_shortcodes_post_type'      => 'user_shortcode',
+
+		'user_shortcodes'                => function ( ContainerInterface $c ) {
+			$builder = $c->get( 'user_shortcodes_query_builder' );
+			assert( $builder instanceof Query_Builder_Interface );
+
+			return $builder->get()->get_posts();
+		},
+
+		'wp_post_factory'                => function ( ContainerInterface $c ) {
 			/**
 			 * @param array $data The data for the post.
 			 *
@@ -132,7 +132,7 @@ return function ( $base_path, $base_url ) {
 			};
 		},
 
-		'object_merger'           => function ( ContainerInterface $c ) {
+		'object_merger'                  => function ( ContainerInterface $c ) {
 			/**
 			 * Merges 2 arrays.
 			 *
@@ -167,46 +167,48 @@ return function ( $base_path, $base_url ) {
 		/*
 		 * Creates text templates.
 		 */
-		'text_template_factory'   => function ( ContainerInterface $c ) {
+		'text_template_factory'          => function ( ContainerInterface $c ) {
 			return function ( $text ) {
 				return new Text_Template( $text );
 			};
 		},
 
-        'translator' => function ( ContainerInterface $c ) {
-		    return new FormatTranslator( $c->get( 'text_domain' ) );
-        },
+		'translator'                     => function ( ContainerInterface $c ) {
+			return new FormatTranslator( $c->get( 'text_domain' ) );
+		},
 
-        /*
-         * A function that creates queries.
-         */
-        'wp_query_factory' => function ( ContainerInterface $c ) {
-		    return function ($args) {
-		        return new WP_Query($args);
-            };
-        },
+		/*
+		 * A function that creates queries.
+		 */
+		'wp_query_factory'               => function ( ContainerInterface $c ) {
+			return function ( $args ) {
+				return new WP_Query( $args );
+			};
+		},
 
-        /*
-         * A function that creates query builders.
-         */
-        'wp_query_builder_factory' => function ( ContainerInterface $c ) {
-            $query_factory = $c->get('wp_query_factory');
+		/*
+		 * A function that creates query builders.
+		 */
+		'wp_query_builder_factory'       => function ( ContainerInterface $c ) {
+			$query_factory = $c->get( 'wp_query_factory' );
 
-            return function ($defaults) use ($query_factory) {
-                return new Post_Query_Builder($query_factory, $defaults);
-            };
-        },
+			return function ( $defaults ) use ( $query_factory ) {
+				return new Post_Query_Builder( $query_factory, $defaults );
+			};
+		},
 
-        /*
-         * A builder of queries used to retrieve user shortcodes.
-         */
-        'user_shortcodes_query_builder' => function ( ContainerInterface $c ) {
-            $make = $c->get('wp_query_builder_factory');
+		/*
+		 * A builder of queries used to retrieve user shortcodes.
+		 */
+		'user_shortcodes_query_builder'  => function ( ContainerInterface $c ) {
+			$make = $c->get( 'wp_query_builder_factory' );
 
-            return $make([
-                'post_type' => $c->get('user_shortcodes_post_type'),
-                'post_status' => 'any',
-            ]);
-        },
+			return $make(
+				[
+					'post_type'   => $c->get( 'user_shortcodes_post_type' ),
+					'post_status' => 'any',
+				]
+			);
+		},
 	];
 };

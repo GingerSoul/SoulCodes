@@ -6,6 +6,7 @@
  */
 
 namespace GingerSoul\SoulCodes;
+
 use Dhii\I18n\FormatTranslatorInterface;
 use Dhii\I18n\StringTranslatorConsumingTrait;
 
@@ -18,8 +19,8 @@ use Dhii\I18n\StringTranslatorConsumingTrait;
  */
 class PHP_Template implements Template_Interface {
 
-    /* @since [*next-version*] */
-    use StringTranslatorConsumingTrait;
+	/* @since [*next-version*] */
+	use StringTranslatorConsumingTrait;
 
 	/**
 	 * Path to the template file.
@@ -30,13 +31,13 @@ class PHP_Template implements Template_Interface {
 	 */
 	protected $template_path;
 
-    /**
-     * The translator associated with this instance.
-     *
-     * @since [*next-version*]
-     *
-     * @var FormatTranslatorInterface
-     */
+	/**
+	 * The translator associated with this instance.
+	 *
+	 * @since [*next-version*]
+	 *
+	 * @var FormatTranslatorInterface
+	 */
 	protected $translator;
 
 	/**
@@ -46,7 +47,7 @@ class PHP_Template implements Template_Interface {
 	 */
 	public function __construct( $template_path, FormatTranslatorInterface $translator ) {
 		$this->template_path = $template_path;
-		$this->translator = $translator;
+		$this->translator    = $translator;
 	}
 
 	/**
@@ -96,32 +97,30 @@ class PHP_Template implements Template_Interface {
 		};
 	}
 
-    /**
-     * Retrieves a function that does translation.
-     *
-     * This function accepts the following parameters:
-     *  - $string - Required. The string to translate. May contain `sprintf()` style placeholders.
-     *  - $args - Optional. The values to interpolate into the placeholders.
-     *  - $context - Optional. The context for the translation.
-     *
-     * @since [*next-version*]
-     *
-     * @return callable The function which performs translation.
-     */
-	protected function get_translate_function()
-    {
-        return function ($string, $args = [], $context = null) {
-            return $this->__($string, $args, $context);
-        };
-    }
+	/**
+	 * Retrieves a function that does translation.
+	 *
+	 * This function accepts the following parameters:
+	 *  - $string - Required. The string to translate. May contain `sprintf()` style placeholders.
+	 *  - $args - Optional. The values to interpolate into the placeholders.
+	 *  - $context - Optional. The context for the translation.
+	 *
+	 * @since [*next-version*]
+	 *
+	 * @return callable The function which performs translation.
+	 */
+	protected function get_translate_function() {
+		return function ( $string, $args = [], $context = null ) {
+			return $this->__( $string, $args, $context );
+		};
+	}
 
-    /**
-     * {@inheritdoc}
-     *
-     * @since [*next-version*]
-     */
-    protected function _getTranslator()
-    {
-        return $this->translator;
-    }
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @since [*next-version*]
+	 */
+	protected function _getTranslator() {
+		return $this->translator;
+	}
 }
