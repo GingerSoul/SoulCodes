@@ -387,10 +387,10 @@ Please go back, refresh the page, and try again.')),
             [],
             $this->get_config('version')
         );
-        
+
         wp_enqueue_script(
-            'soulcodes',
-            $this->get_js_url('scripts.js'),
+            'soulcodes-admin',
+            $this->get_js_url('admin.js'),
             [],
             $this->get_config('version')
         );
