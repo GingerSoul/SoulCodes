@@ -61,9 +61,11 @@ class Handler_User_Shortcodes_Ui extends Handler {
                     $string_filter_options
                 );
 
-                if ($this->is_plugin_page($pagenow, $page)) {
-                    $this->enqueue_admin_assets();
+                if (!$this->is_plugin_page($pagenow, $page)) {
+                    return;
                 }
+
+                $this->enqueue_admin_assets();
 
                 if (is_null($action)) {
                     return;
