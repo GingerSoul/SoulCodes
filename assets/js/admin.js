@@ -76,7 +76,7 @@
 
 		this._copyShortcodeToClipboard = function () {
 			var shortcode = this.getShortcode();
-			this._copyToClipboard(shortcode);
+			this._copyToClipboard('[' + shortcode + ']');
 		};
 
 		this._copyToClipboard = function (text) {
